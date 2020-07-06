@@ -1,17 +1,17 @@
 {
-  "name": "funcionarios",
+  "name": "projeto",
   "version": "1.0.0",
   "description": "",
-  "main": "funcionario.js",
+  "main": "src/servidor.js",
   "scripts": {
     "start": "nodemon",
-    "mon": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2"
+    "body-parser": "1.18.2",
+    "express": "4.16.2"
   }
 }
