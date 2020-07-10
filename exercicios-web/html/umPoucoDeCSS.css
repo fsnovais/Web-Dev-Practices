@@ -1,0 +1,18 @@
+h1 {
+    font-size: 30px;
+    color: blue;
+}
+#texto1 {
+    font-size: 20px;
+    color: white;
+    background-color: black;
+}
+.fundoazul {
+    background-color: blue;
+}
+.negrito {
+    font-weight: bold;
+}
+.sublinhado {
+    text-decoration: underline;
+}
