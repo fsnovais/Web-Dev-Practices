@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <script> src = "library.js"</script> <!-- Inclui uma biblioteca javascript-->
+</head>
+
+<body>
+    <script>
+        function moveon() {
+            var person = prompt("Please enter your name", "You-Know-Who");
+            if (person == null || person == "") {
+                alert("Insert yor name to proceed.")
+            } else {
+                var answer = confirm('Hello! '+ person + ', are you prepared to enter in forgotten World?')
+            }
+            // Exibe uma caixa de diálogo modal para fazer uma pergunta ao usuário
+
+            // Se ele clicou no botão 'ok', faz o navegador carregar uma nova página
+            if (answer) window.location = 'https://www.hashima-island.co.uk/#'
+        }
+        // Executa a função definida acima por 1 minuto (60.000 milissegundos) a partir de agora.
+        moveon()
+    </script>
+</body>
+
+</html>

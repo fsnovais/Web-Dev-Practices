@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src='hide.js'></script>
+</head>
+
+<body>
+    <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQJ8fjjREnhbOsm2idPaYvBi1PmY7HEH8Rmpw&usqp=CAU'>
+    <img src='https://i.imgur.com/GsNCBNJ.png'>
+    <img src='https://cdn.technologyreview.com/_/img/ad-300x250-5.jpg'>
+    <img src='https://cdn.acritica.net/img/c/300/250/dn_noticia/2016/11/img-7313jpg.JPG?a=CC'>
+    <img src='https://cdn.agenciarural.com.br/img/c/300/250/dn_noticia/2019/04/img-4154.jpg'>
+</body>
+<script>
+    // O evento "load" ocorre quando um documento está totalmente carregado. Normalmente,
+    // precisamos esperar por esse evento antes de começarmos a executar nosso código JavaScript.
+    window.onload = function() { // Executa essa função quando o documento for carregado
+        var images = document.getElementsByTagName('img')    //Localiza todas as tags <img> do documento
+        
+        // Faz um laço por elas, adicionando uma rotina de tratamento para eventos "click" em
+        // cada uma para que clicar na imagem a oculte.
+        for(let i = 0; i<images.length; i++){
+            var image = images[i]
+            if (image.addEventListener){    // Outro modo de registrar a rotina de tratamento
+                image.addEventListener('click', hide, false);
+            } else {
+                image.attachEvent('onclick', hide)
+            }
+        }
+        // Esta é a função de rotina para tratamento de evento registrada anteriormente
+            function hide(event) { event.target.style.visibility = "hidden"; }
+    }
+</script>
+
+</html>

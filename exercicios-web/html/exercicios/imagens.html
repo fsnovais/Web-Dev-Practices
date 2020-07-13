@@ -1,0 +1,78 @@
+<div wm-slider>
+
+    <p>
+        <img src='https://get.pxhere.com/photo/water-mountain-tree-gold-blue-reflection-sky-nature-natural-landscape-body-of-water-lake-wilderness-morning-lake-district-sound-cloud-landscape-mountain-range-bank-national-park-leaf-calm-alps-fjord-sunlight-reservoir-evening-glacial-lake-autumn-loch-tarn-plant-mount-scenery-larch-horizon-sunrise-glacial-landform-moraine-fell-inlet-glacier-theatrical-scenery-pine-family-river-world-hill-1585863.jpg'
+            alt="paisagem1" width="480" height="270">
+    </p>
+    <p>
+        <img src='https://get.pxhere.com/photo/water-mountain-sunset-fire-nature-natural-landscape-sky-reflection-mountainous-landforms-mountain-range-landscape-ice-glacial-landform-cloud-geological-phenomenon-glacier-world-glacial-lake-lake-mount-scenery-fjord-calm-ice-cap-dawn-arctic-iceberg-massif-alps-space-screenshot-cg-artwork-1585865.jpg'
+            alt="paisagem2" width="480" height="270">
+    </p>
+    <p>
+        <img src='https://get.pxhere.com/photo/nature-sky-lavender-english-lavender-field-sky-flower-natural-landscape-purple-violet-plant-morning-flowering-plant-spring-horizon-landscape-farm-cloud-grassland-rural-area-meadow-sunset-french-lavender-wildflower-plain-sunrise-lamiales-1572213.png'
+            alt="paisagem3" width="480" height="270">
+    </p>
+    <p>
+        <img src='https://get.pxhere.com/photo/natural-natural-landscape-tree-nature-green-road-natural-environment-thoroughfare-woody-plant-lane-yellow-asphalt-sunlight-leaf-spring-plant-morning-sky-forest-infrastructure-road-surface-landscape-line-highway-grass-branch-symmetry-rural-area-grove-deciduous-wallpaper-road-trip-plantation-nonbuilding-structure-woodland-temperate-broadleaf-and-mixed-forest-plane-1421969.jpg'
+            alt="paisagem4" width="480" height="270">
+    </p>
+    <p>
+        <img src='https://get.pxhere.com/photo/natural-sky-natural-landscape-nature-sunrise-atmospheric-phenomenon-cloud-morning-sunset-horizon-sunlight-evening-sun-tree-atmosphere-landscape-reflection-sea-hill-calm-winter-dawn-mountain-lake-fell-river-wildlife-plain-national-park-afterglow-coast-ocean-sound-1590461.jpg'
+            alt="paisagem5" width="480" height="270">
+    </p>
+    <p>
+        <img src='https://get.pxhere.com/photo/natural-sky-reflection-body-of-water-natural-landscape-nature-cloud-marsh-natural-environment-blue-water-daytime-calm-water-resources-salt-marsh-wetland-horizon-cumulus-Freshwater-marsh-lake-floodplain-bank-tree-fen-swamp-river-loch-bog-landscape-bayou-sea-reservoir-meteorological-phenomenon-tidal-marsh-sound-1590451.jpg'
+            alt="paisagem6" width="480" height="270">
+    </p>
+</div>
+
+<style>
+    p {
+        position: absolute;
+        display: none;
+    }
+</style>
+<script>
+    function mover(elem, inicio, fim, passo, callback) {
+        const novoInicio = inicio - passo
+        if(novoInicio >= fim) {
+            elem.style.left = novoInicio + 'px'
+            setTimeout(() => mover(elem, novoInicio, fim, passo, callback), 7)
+        } else {
+            callback()
+        }
+    }
+
+    // const p = document.querySelector('[wm-slider] > p')
+    // p.style.display = 'block'
+    // mover(p, 1500, -520, 5, () => {
+    //     console.log('Terminou!!!')
+    // })
+
+    function slider() {
+        const elementos = document.querySelectorAll('[wm-slider] > p')
+        const slides = Array.from(elementos)
+        exibirSlide(slides, slides[0])
+    }
+
+    function exibirSlide(slides, slide) {
+        slide.style.display = 'block'
+
+        const inicio = innerWidth
+        const fim = -slide.clientWidth
+
+        slide.style.left = `${inicio}px`
+
+        mover(slide, inicio, fim, 5, () => {
+            slide.style.display = 'none'
+            exibirSlide(slides, getProximo(slides, slide))
+        })
+    }
+
+    function getProximo(lista, atual) {
+        const i = lista.indexOf(atual) + 1
+        return i < lista.length ? lista[i] : lista[0]
+    }
+
+    slider()
+</script>
