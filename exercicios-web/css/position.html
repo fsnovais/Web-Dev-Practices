@@ -5,7 +5,58 @@
     <meta charset="UTF-8">
     <title>Position</title>
     <style>
-        /* ... */
+        div{
+            font-size: 20px;
+            border: solid 5px black;
+            padding: 20px;
+            color:lightyellow;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .static{
+            position: static;
+            top: 100px;
+            left: 50px;
+            background-color: crimson;
+        }
+        .fixed {
+            position: fixed;
+            bottom: 50px;
+            left: 30px;
+            background-color: darkolivegreen;
+        }
+        .relative1 {
+            position: relative;
+            top: 0px;
+            left: 50px;
+            background-color: darkorange;
+        }
+        .absolute1 {
+            position: absolute;
+            top:30px;
+            left:550px;
+            background-color: indianred;
+        }
+        .relative2 {
+            position: relative;
+            top: 0px;
+            left: 20px;
+            background-color: maroon;
+            height: 200px;
+            width: 300px;
+        }
+        .absolute2 {
+            position: absolute;
+            top: 30px;
+            right: 10px;
+            background-color: mediumaquamarine;
+        }
+        .sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            background-color: mediumblue;
+            top: 20px;
+            left: 10px;
+        }
     </style>
 </head>
 
@@ -15,8 +66,8 @@
     <div class="relative1">Relative</div>
     <div class="absolute1">Absolute</div>
 
-    <div class="relative2">
-        <div class="absolute2"></div>
+    <div class="relative2">Relative2
+        <div class="absolute2">Absolute2</div>
     </div>
 
     <div class="sticky">Sticky</div>
