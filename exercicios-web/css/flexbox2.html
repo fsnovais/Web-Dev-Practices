@@ -6,7 +6,32 @@
     <title>Flexbox #02</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        .flex-container {
+            display:flex;
+            width: 600px;
+            height: 300px;
+        }
+        .flex-container div {
+            width: 100px;
+        }
+        div:nth-child(3) {
+            background-color:rebeccapurple ;
+            order: -1;
+            align-self:flex-start;
+            align-self:flex-end;
+            align-self:center;
+            align-self: stretch;
+            flex-grow: 2;
+        }
+        .flex-container div{
+            flex-grow: 1;
+        }
+        .flex-container{
+            width: 300px;
+        }
+        .flex-container div:nth-child(2){
+            flex-shrink: 2;
+        }
     </style>
 </head>
 

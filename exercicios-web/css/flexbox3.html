@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 
 <head>
@@ -6,7 +6,24 @@
     <title>Flexbox #03</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        .flex-container {
+            display:flex;
+            flex-direction: row;
+            
+        }
+        .flex-container div {
+            flex-basis: 100px;
+            width: 200px; /*flex-basis tem prioridade*/
+        }
+        .flex-container div:nth-child(3){
+            /*grow shrink basis*/
+            flex: 2 3 150px;
+        }
+        .flex-container{
+            width: 200px;
+
+        }
+
     </style>
 </head>
 
