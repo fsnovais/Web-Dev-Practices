@@ -20,6 +20,26 @@
             border: solid 5px dodgerblue;
             background: #fff;
         }
+        body{
+            display: grid;
+            grid-template-rows:[inicio] 1fr [meio1] 1fr [meio2] 1fr[fim];
+            grid-template-columns: repeat(3, 1fr);
+
+            grid-column-gap: 20px;
+            grid-row-gap: 20px;
+            /* Grid gap: Linha e coluna */
+            grid-gap: 30px 30px;
+            grid-gap: 10px;
+
+        }
+        .d2 {
+            grid-row-start: inicio;
+            grid-row-end: fim;
+            grid-row: meio1 / fim;
+            grid-column: 2 / 4;
+            /* row-start, column-start, row-end, column-end */
+            grid-area:1 / 1 / 4 / 4 ;
+        }   
     </style>
 </head>
 
