@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body:nth-child(1){
+            
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wm-attrib>.terceiro .ultimo</span></div>
+    <script>              
+        const primeiro = document.querySelector('#primeiro')
+        primeiro.classList.add('destaque')
+
+        function selecionar(seletor) {
+            document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque'))
+        }
+        function desselecionar(seletor) {
+            document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'))
+        }
+        desselecionar('*')
+        
+        selecionar('#primeiro')
+
+        desselecionar('*')
+
+        selecionar('.terceiro.ultimo')
+
+        desselecionar('*')
+
+        selecionar(':nth-child(1)')
+
+        desselecionar('*')
+
+        selecionar(':not(.terceiro)')
+
+        desselecionar('*')
+
+        selecionar('[wm-attrib]')
+    </script>
+</body>
+</html>
