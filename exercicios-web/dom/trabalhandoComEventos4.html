@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 
 <head>
@@ -31,6 +31,34 @@
         <button wm-submit>Pesquisar</button>
     </form>
     <script>
-        // ...
+        // const item = document.querySelector('[wm-submit]')
+        // item.onclick = e => {
+        //     e.preventDefault()
+
+        //     const item = e.target.parentNode
+        //     const formData = new FormData(item)
+        //     formData.append('ajax', true)
+        //     console.log(formData.get('q'))
+        //     console.log(formData.get('hl'))
+
+        //     for (let dado of formData) {
+        //         console.log(dado)
+        //     }
+        // }
+
+        const form = document.forms[0]
+        form.onsubmit = e => {
+            e.preventDefault()
+
+            const form = e.target
+            const formData = new FormData(form)
+            formData.append('ajax', true)
+            console.log(formData.get('q'))
+            console.log(formData.get('hl'))
+
+            for(let dado of formData) {
+                console.log(dado)
+            }
+        }
     </script>
 </body>
