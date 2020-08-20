@@ -12,52 +12,53 @@
 
     <script>
         function ajax(config) {
-            const xhr = new XMLHttpRequest;
-            xhr.open(config.metodo, config.url, true)
+            const xhr = new XMLHttpRequest()
+            xhr.open(config.method, config.url, true)
+
             xhr.onload = e => {
                 if (xhr.status === 200) {
                     config.sucesso(xhr.response)
-                } else if (xhr.status >= 400) {
+                }else if(xhr.status >= 400){
                     config.erro({
-                        codigo: xhr.status,
-                        texto: xhr.statusText
+                        code: xhr.status,
+                        text: xhr.statusText
                     })
                 }
             }
             xhr.send()
         }
-        function criarTabela(estados) {
+
+        function criarTabela(estados){
             const linhas = estados.map(estado => {
-                const tdId = document.createElement('td')
-                tdId.innerHTML = estado.id
+                    const tdId = document.createElement('td')
+                    tdId.innerHTML = estado.id
+                    const tdNome = document.createElement('td')
+                    tdNome.innerHTML = estado.nome
+                    const tdSigla = document.createElement('td')
+                    tdSigla.innerHTML = estado.sigla
 
-                const tdNome = document.createElement('td')
-                tdNome.innerHTML = estado.nome
+                    const tr = document.createElement('tr')
+                    tr.appendChild(tdId)
+                    tr.appendChild(tdNome) 
+                    tr.appendChild(tdSigla)  
 
-                const tdSigla = document.createElement('td')
-                tdSigla.innerHTML = estado.sigla
+                    return tr
+                })
 
-                const tr = document.createElement('tr')
-                tr.appendChild(tdId)
-                tr.appendChild(tdNome)
-                tr.appendChild(tdSigla)
-
-                return tr
-            })
-            const tabela = document.createElement('table')
-            linhas.forEach(linha => tabela.appendChild(linha))
-            document.body.appendChild(tabela)
+                const tabela = document.createElement('table')
+                linhas.forEach(linha => tabela.appendChild(linha))
+                document.body.appendChild(tabela)
         }
+
         ajax({
-            metodo: 'GET',
-            url: 'dados/estados.json',
-            sucesso(resposta) {
+            url:'dados/estados.json',
+            method: 'get',
+            sucesso(resposta)  {
                 const estados = JSON.parse(resposta)
                 criarTabela(estados)
-
             },
             erro(e) {
-                const msg = document.createTextNode(`${e.codigo}:${e.texto}`)
+                const msg = document.createTextNode(`${e.code}: ${e.text}`)
                 document.body.appendChild(msg)
             }
         })
