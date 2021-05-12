@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <title>v-on</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>O botão foi clicado {{cliques}} vezes.</p>
+      <button v-on:click="increment">Clicar</button>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        cliques: 0,
+      },
+      methods: {
+        increment: function () {
+          this.cliques++;
+        },
+      },
+    });
+  </script>
+</html>
